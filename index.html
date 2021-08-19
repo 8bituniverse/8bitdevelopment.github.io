@@ -522,7 +522,7 @@
 <script>
   let currentAccount = null;
   let web3;
-  let contractABI;
+  var contractABI;
   let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
 
   function handleAccountsChanged(accounts) {
@@ -562,9 +562,9 @@
   }
 
   function detectMetaMask() {
-      if (typeof window.ethereum !== 'undefined') {                
+      if (typeof window.ethereum !== 'undefined') {
           return true
-      } else {                
+      } else {
           return false
       }
   }
