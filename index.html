@@ -209,7 +209,7 @@
     <section class="contract-section hidden">
         <div style="margin-top: 30px;" class="row text-center">
             <div class="col-md-12">
-                <h3>Contract Info</h3>
+                <h3>Mint</h3>
             </div>
         </div>        
         <div class="row text-center">
@@ -640,7 +640,7 @@
       });
 
       try {
-          web3 = new Web3(new Web3.providers.HttpProvider(window.ethereum));
+          web3 = new Web3(new Web3.providers.HttpProvider(window.web3));
       } catch (error) {
           alert(error)
       }      
