@@ -640,7 +640,7 @@
       });
 
       try {
-          web3 = new Web3(new Web3.providers.HttpProvider(web3.currentProvider));
+          web3 = new Web3(new Web3.providers.HttpProvider(window.ethereum));
       } catch (error) {
           alert(error)
       }      
