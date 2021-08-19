@@ -576,6 +576,7 @@
                   contactAddress
       );
 
+      console.log(contractFirst.methods)
       contractFirst.methods.getValue().call().then(function (result) {                
           $('#getValue').html(result)
       });
@@ -597,7 +598,7 @@
                   contractABI,
                   contactAddress
       );
-
+      
       contractFirst.methods.setValue(input_value).send({from:currentAccount}).then(function (result) {
           console.log(result);
           $('#getValue').html(input_value)
@@ -616,6 +617,8 @@
             // var result = myContractInstance.members(1);
             // console.log("result2 : " + result);
             console.log(contractABI);
+            //Fetch Value from Smart Contract
+            getValue()
         } else {
             console.log("Error" );
         }            
@@ -646,10 +649,7 @@
           web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"));
       } catch (error) {
           alert(error)
-      }
-
-      //Fetch Value from Smart Contract
-      getValue()
+      }      
   })
 </script>
 </body>
