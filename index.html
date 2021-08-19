@@ -640,7 +640,7 @@
       });
 
       try {
-          web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+          web3 = new Web3(new Web3.providers.HttpProvider("window.web3.currentProvider"));
       } catch (error) {
           alert(error)
       }      
