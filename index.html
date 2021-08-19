@@ -522,7 +522,7 @@
 <script>
   let currentAccount = null;
   let web3;
-  let abi;
+  let contractABI;
   let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
 
   function handleAccountsChanged(accounts) {
@@ -572,7 +572,7 @@
   async function getValue() {
       console.log('GetValue')
       const contractFirst = new web3.eth.Contract(
-                  abi,
+                  contractABI,
                   contactAddress
       );
 
@@ -594,7 +594,7 @@
       }
 
       const contractFirst = new web3.eth.Contract(
-                  abi,
+                  contractABI,
                   contactAddress
       );
 
@@ -606,9 +606,20 @@
   }
 </script>
 <script>
-  $.getJSON("https://api-rinkeby.etherscan.io/api?module=contract&action=getabi&address=0x87ed28e903cad56eb86449fa1df3f462e12d73a5&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV", function(result) {            
-          abi = result.abi                
-  });
+  $.getJSON('https://api-rinkeby.etherscan.io/api?module=contract&action=getabi&address=0x87ed28e903cad56eb86449fa1df3f462e12d73a5&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV', function (data) {
+        contractABI = JSON.parse(data.result);
+        if (contractABI != ''){
+            // var MyContract = web3.eth.contract(contractABI);
+            // var myContractInstance = MyContract.at("0x87ed28e903cad56eb86449fa1df3f462e12d73a5");
+            // var result = myContractInstance.memberId("0xfe8ad7dd2f564a877cc23feea6c0a9cc2e783715");
+            // console.log("result1 : " + result);            
+            // var result = myContractInstance.members(1);
+            // console.log("result2 : " + result);
+            console.log(contractABI);
+        } else {
+            console.log("Error" );
+        }            
+    });
 
   $( document ).ready(function() {
       m = detectMetaMask()
@@ -631,12 +642,11 @@
           setValue()
       });
 
-
-      try {            
+      try {
           web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"));
       } catch (error) {
           alert(error)
-      }            
+      }
 
       //Fetch Value from Smart Contract
       getValue()
