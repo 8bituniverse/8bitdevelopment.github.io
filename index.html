@@ -606,7 +606,7 @@
   }
 </script>
 <script>
-  $.getJSON("build/contracts/BITS.json", function(result) {            
+  $.getJSON("https://api-rinkeby.etherscan.io/api?module=contract&action=getabi&address=0x87ed28e903cad56eb86449fa1df3f462e12d73a5&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV", function(result) {            
           abi = result.abi                
   });
 
