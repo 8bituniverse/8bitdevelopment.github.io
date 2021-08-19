@@ -211,15 +211,10 @@
             <div class="col-md-12">
                 <h3>Contract Info</h3>
             </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-12">
-                <span>Current Value: <i id="getValue"></i></span>
-            </div>
-        </div>
+        </div>        
         <div class="row text-center">
             <div class="col-md-4 offset-4">
-                <span>Set Value: <input id="value" type="text" class="form-control" value=""> <button id="setValue" class="btn btn-primary">Set Value</button></span>
+                <span>Enter Amount: <input id="value" type="text" class="form-control" value=""> <button id="setValue" class="btn btn-primary">Mint</button></span>
             </div>
         </div>
     </section>
@@ -596,7 +591,7 @@
 
       console.log(contractABI);
       console.log(contactAddress)
-      
+
       const contractFirst = new web3.eth.Contract(
                   contractABI,
                   contactAddress
