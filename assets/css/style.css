@@ -2535,3 +2535,10 @@ section {
 .mobile-nav-toggle {
   padding-right: 0 !important;
 }
+
+.meta-gray {
+  -webkit-filter: grayscale(1);
+}
+.meta-normal {
+  -webkit-filter: grayscale(0);
+}
