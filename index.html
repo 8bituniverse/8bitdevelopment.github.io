@@ -640,7 +640,7 @@
       });
 
       try {
-          web3 = new Web3(new Web3.providers.HttpProvider(Web3.givenProvider));
+          web3 = new Web3(new Web3.providers.HttpProvider(window.web3));
       } catch (error) {
           alert(error)
       }      
