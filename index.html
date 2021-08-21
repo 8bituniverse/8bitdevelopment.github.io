@@ -615,7 +615,7 @@
             getValue()
         } else {
             console.log("Error" );
-        }            
+        }
     });
 
   $( document ).ready(function() {
@@ -639,11 +639,11 @@
           setValue()
       });
 
-      // try {
-      //     web3 = new Web3(new Web3.providers.HttpProvider(web3.currentProvider));
-      // } catch (error) {
-      //     alert(error)
-      // }      
+      try {
+          web3 = new Web3(new Web3.providers.HttpProvider(Web3.givenProvider));
+      } catch (error) {
+          alert(error)
+      }      
   })
 </script>
 </body>
