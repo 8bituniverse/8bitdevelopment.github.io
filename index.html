@@ -514,7 +514,7 @@
   let currentAccount = null;
   var web3;
   var contractABI;
-  let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
+  let contactAddress = '0xaae71bbbaa359be0d81d5cbc9b1e88a8b7c58a94'
 
   function handleAccountsChanged(accounts) {
       console.log('Calling HandleChanged')
@@ -601,7 +601,7 @@
   }
 </script>
 <script>
-  $.getJSON('https://api-rinkeby.etherscan.io/api?module=contract&action=getabi&address=0x87ed28e903cad56eb86449fa1df3f462e12d73a5&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV', function (data) {
+  $.getJSON('https://api.etherscan.io/api?module=contract&action=getabi&address=0xaae71bbbaa359be0d81d5cbc9b1e88a8b7c58a94&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV', function (data) {
         contractABI = JSON.parse(data.result);
         if (contractABI != ''){
             // var MyContract = web3.eth.contract(contractABI);
@@ -640,7 +640,7 @@
       });
 
       try {
-          web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"));
+          web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/6eecac3701d4490fba19aa5f9da95a51"));
       } catch (error) {
           alert(error)
       }      
