@@ -639,11 +639,11 @@
           setValue()
       });
 
-      // try {
-      //     web3 = new Web3(new Web3.providers.HttpProvider(window.web3));
-      // } catch (error) {
-      //     alert(error)
-      // }
+      try {
+          web3 = new web3(new web3.providers.HttpProvider(window.ethereum));
+      } catch (error) {
+          alert(error)
+      }
   })
 </script>
 </body>
