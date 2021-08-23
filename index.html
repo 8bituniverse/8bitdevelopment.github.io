@@ -512,7 +512,7 @@
 
 <script>
   let currentAccount = null;
-  var web3;
+  const web3 = require("web3");
   var contractABI;
   let contactAddress = '0xaae71bbbaa359be0d81d5cbc9b1e88a8b7c58a94'
 
@@ -636,14 +636,19 @@
       });
 
       $('#setValue').click(function() {
-          setValue()
+          setValue(input_value)
       });
 
-      try {
-          web3 = new Web3(new Web3.providers.HttpProvider(window.web3));
-      } catch (error) {
-          alert(error)
-      }      
+      const ethEnabled = async () => {
+      if (window.ethereum) {
+        await window.ethereum.send('eth_requestAccounts');
+        window.web3 = new Web3(window.ethereum);
+        console.log("cool")
+        return true;
+        }
+        console.log("no")
+        return false;
+      }
   })
 </script>
 </body>
