@@ -512,9 +512,9 @@
 
 <script>
   let currentAccount = null;
-  const web3 = require("web3");
+  var web3;
   var contractABI;
-  let contactAddress = '0xaae71bbbaa359be0d81d5cbc9b1e88a8b7c58a94'
+  let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
 
   function handleAccountsChanged(accounts) {
       console.log('Calling HandleChanged')
@@ -601,7 +601,7 @@
   }
 </script>
 <script>
-  $.getJSON('https://api.etherscan.io/api?module=contract&action=getabi&address=0xaae71bbbaa359be0d81d5cbc9b1e88a8b7c58a94&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV', function (data) {
+  $.getJSON('https://api-rinkeby.etherscan.io/api?module=contract&action=getabi&address=0x87ed28e903cad56eb86449fa1df3f462e12d73a5&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV', function (data) {
         contractABI = JSON.parse(data.result);
         if (contractABI != ''){
             // var MyContract = web3.eth.contract(contractABI);
@@ -639,16 +639,11 @@
           setValue(input_value)
       });
 
-      const ethEnabled = async () => {
-      if (window.ethereum) {
-        await window.ethereum.send('eth_requestAccounts');
-        window.web3 = new Web3(window.ethereum);
-        console.log("cool")
-        return true;
-        }
-        console.log("no")
-        return false;
-      }
+      // try {
+      //     web3 = new Web3(new Web3.providers.HttpProvider(window.web3));
+      // } catch (error) {
+      //     alert(error)
+      // }
   })
 </script>
 </body>
