@@ -214,8 +214,9 @@
         </div>        
         <div class="row text-center">
             <div class="col-md-4 offset-4">
-                <span>Enter Amount: <input id="value" type="number" min="1" max="8" class="form-control" value=""> <button id="setValue" class="btn btn-primary">Mint</button></span>
+                <span>Enter Amount: <input id="value" type="number" min="1" max="8" class="form-control" value=""> <button id="setValue" class="btn btn-primary">Mint</button> <button id="mintMax" class="btn btn-primary">Mint Max</button></span>
             </div>
+
         </div>
     </section>
     </div>  
@@ -643,6 +644,30 @@
       });
 
   }
+
+
+  async function mintMax() {
+
+      input_value = 8;
+      
+      if(input_value.trim() == '') {
+          input_value = 0
+      }
+      if(!isNaN(input_value)) {
+          input_value = parseInt(input_value)
+      }
+
+      const contractFirst = new web3.eth.Contract(
+                  contractABI,
+                  contactAddress
+      );
+      
+      contractFirst.methods.mintBit(input_value).send({from:currentAccount,value:711040000000000000}).then(function (result) {
+          console.log(result);
+          // $('#getValue').html(input_value)
+      });
+
+  }
 </script>
 <script>
   $.getJSON('https://api-rinkeby.etherscan.io/api?module=contract&action=getabi&address=0x87ed28e903cad56eb86449fa1df3f462e12d73a5&apikey=8FRMKXU5HPJZU9UF8X5UMRR4D2S41XXSUV', function (data) {
@@ -682,6 +707,10 @@
       $('#setValue').click(function() {
           setValue()
       });
+
+      $('#mintMax').click(function() {
+          mintMax()
+      });      
 
       setInterval(function(){ 
         getValue()
