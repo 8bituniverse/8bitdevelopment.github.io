@@ -561,7 +561,7 @@
           currentAccount = accounts[0];
           $('#enableMetamask').html(currentAccount)
           $('#status').html('')
-
+          getMinted()
           if(currentAccount != null) {
               // Set the button label
               $('#enableMetamask').html(currentAccount)
@@ -581,6 +581,7 @@
           // If this happens, the user rejected the connection request.
           console.log('Please connect to MetaMask.');
           $('#status').html('You refused to connect Metamask')
+
       } else {
           console.error(err);
       }
@@ -680,8 +681,7 @@
           $('#metaicon').removeClass('meta-gray')
           $('#metaicon').addClass('meta-normal')
           $('#enableMetamask').attr('disabled',false)
-          connect() // Make sure the connected wallet is being returned
-          getMinted()
+          connect() // Make sure the connected wallet is being returned          
       } else {
           $('#enableMetamask').attr('disabled',true)
           $('#metaicon').removeClass('meta-normal')
