@@ -650,13 +650,6 @@
 
       input_value = 8;
       
-      if(input_value.trim() == '') {
-          input_value = 0
-      }
-      if(!isNaN(input_value)) {
-          input_value = parseInt(input_value)
-      }
-
       const contractFirst = new web3.eth.Contract(
                   contractABI,
                   contactAddress
