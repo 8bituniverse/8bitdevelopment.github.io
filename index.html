@@ -630,7 +630,7 @@
                   contactAddress
       );
 
-      contractFirst.methods.TotalSupply().call().then(function (result) {                
+      contractFirst.methods.totalSupply().call().then(function (result) {                
           $(".mintedAmount").html(result)
       });
   }
