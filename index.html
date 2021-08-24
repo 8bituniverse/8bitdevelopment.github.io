@@ -560,8 +560,8 @@
       } else if (accounts[0] !== currentAccount) {
           currentAccount = accounts[0];
           $('#enableMetamask').html(currentAccount)
-          $('#status').html('')
-          getMinted()
+          $('#status').html('')          
+          setTimeout(getMinted(), 3000);
           if(currentAccount != null) {
               // Set the button label
               $('#enableMetamask').html(currentAccount)
