@@ -595,7 +595,7 @@
                   contactAddress
       );
       
-      contractFirst.methods.mintBit(input_value).send({from:currentAccount}).then(function (result) {
+      contractFirst.methods.mintBit('0.08888').numberOfTokens(input_value).send({from:currentAccount}).then(function (result) {
           console.log(result);
           // $('#getValue').html(input_value)
       });
