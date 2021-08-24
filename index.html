@@ -549,13 +549,7 @@
             default:
               sendValue=null;
               break;
-          }
-
-  setInterval(function(){ 
-    //this code runs every second 
-    getValue();
-    getMinted();
-  }, 15000);
+          }  
 
   function handleAccountsChanged(accounts) {
       console.log('Calling HandleChanged')
@@ -687,6 +681,7 @@
           $('#metaicon').addClass('meta-normal')
           $('#enableMetamask').attr('disabled',false)
           connect() // Make sure the connected wallet is being returned
+          getMinted()
       } else {
           $('#enableMetamask').attr('disabled',true)
           $('#metaicon').removeClass('meta-normal')
@@ -700,6 +695,11 @@
       $('#setValue').click(function() {
           setValue()
       });
+
+      setInterval(function(){ 
+        getValue()
+        getMinted()
+      }, 15000);
 
       // try {
       //     web3 = new Web3(new Web3.providers.HttpProvider(window.ethereum));
