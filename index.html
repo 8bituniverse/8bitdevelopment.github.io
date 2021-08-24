@@ -575,9 +575,11 @@
           if (result==true) {
             console.log("was true");
             $("#setValue").prop("disabled", false);
+            $("#setValue").prop("value", 'Minting');
           } else {
             console.log("was false");
             $("#setValue").prop("disabled", true);
+            $("#setValue").prop("value", 'NOT LIVE');
           }
       });
   }
