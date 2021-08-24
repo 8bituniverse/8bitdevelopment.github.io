@@ -515,6 +515,9 @@
   let web3js;
   var contractABI;
   let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
+  const Web3 = require('web3');
+  // web3 lib instance
+  const web3 = new Web3(window.ethereum);
 
   function handleAccountsChanged(accounts) {
       console.log('Calling HandleChanged')
