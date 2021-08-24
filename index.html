@@ -572,6 +572,11 @@
       console.log(contractFirst.methods)
       contractFirst.methods.saleIsActive().call().then(function (result) {                
           console.log(result)
+          if (result==true) {
+            console.log("was true")
+          } else {
+            console.log("was false")
+          }
       });
   }
 
