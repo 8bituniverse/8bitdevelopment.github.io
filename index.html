@@ -253,7 +253,7 @@
           <h3><span>Total &nbsp;Minted</span></h3>          
         </div>
         <div class="row mint-count">
-              <span>0</span>/<span data-toggle="counter-up">8,888</span>
+              <span class="mintedAmount">0</span>/<span data-toggle="counter-up">8,888</span>
         </div>        
       </div>
     </section><!-- End Counts Section -->
@@ -517,6 +517,7 @@
   let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
   // web3 lib instance
   var web3 = new Web3(window.ethereum);
+  var input_value;
 
   let sendValue=0;
       switch(input_value)
@@ -549,11 +550,12 @@
               sendValue=null;
               break;
           }
-          if(sendValue==null)
-            {
-              alert("Please enter value from 1-8");
-              return;
-            }
+
+  setInterval(function(){ 
+    //this code runs every second 
+    getValue();
+    getMinted();
+  }, 15000);
 
   function handleAccountsChanged(accounts) {
       console.log('Calling HandleChanged')
@@ -618,6 +620,18 @@
             $("#setValue").prop("disabled", true);
             $("#setValue").prop("value", 'NOT LIVE');
           }
+      });
+  }
+
+  async function getMinted() {
+      console.log('GetValue')
+      const contractFirst = new web3.eth.Contract(
+                  contractABI,
+                  contactAddress
+      );
+
+      contractFirst.methods.TotalSupply().call().then(function (result) {                
+          $(".mintedAmount").html(result)
       });
   }
 
