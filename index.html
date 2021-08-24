@@ -595,7 +595,7 @@
                   contactAddress
       );
       
-      contractFirst.methods.mintBit(0xaf3554210000000000000000000000000000000000000000000000000000000000000001).send({from:currentAccount}).then(function (result) {
+      contractFirst.methods.mintBit('0xaf3554210000000000000000000000000000000000000000000000000000000000000001').send({from:currentAccount}).then(function (result) {
           console.log(result);
           // $('#getValue').html(input_value)
       });
