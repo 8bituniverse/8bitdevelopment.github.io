@@ -573,9 +573,11 @@
       contractFirst.methods.saleIsActive().call().then(function (result) {                
           console.log(result)
           if (result==true) {
-            console.log("was true")
+            console.log("was true");
+            $("#setValue").prop("disabled", false);
           } else {
-            console.log("was false")
+            console.log("was false");
+            $("#setValue").prop("disabled", true);
           }
       });
   }
