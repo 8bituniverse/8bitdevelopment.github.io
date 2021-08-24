@@ -512,7 +512,7 @@
 
 <script>
   let currentAccount = null;
-  let web3;
+  let web3js;
   var contractABI;
   let contactAddress = '0x87ed28e903cad56eb86449fa1df3f462e12d73a5'
 
@@ -642,7 +642,7 @@
       // window.ethereum
       const accounts = ethereum.request({ method: 'eth_accounts' });
       try {
-          web3 = new Web3(new Web3.providers.HttpProvider(window.ethereum));
+          web3js = new Web3(new Web3.providers.HttpProvider(window.ethereum));
       } catch (error) {
           console.log(error);
           alert(error)
