@@ -518,6 +518,43 @@
   // web3 lib instance
   var web3 = new Web3(window.ethereum);
 
+  let sendValue=0;
+      switch(input_value)
+          {
+            case 1:
+              sendValue=88880000000000000;
+              break;
+            case 2:
+              sendValue=177760000000000000;
+              break;
+            case 3:
+              sendValue=266640000000000000;
+              break;
+            case 4:
+              sendValue=355520000000000000;
+              break;
+            case 5:
+              sendValue=444400000000000000;
+              break;
+            case 6:
+              sendValue=533280000000000000;
+              break;
+            case 7:
+              sendValue=622160000000000000;
+              break;
+            case 8:
+              sendValue=711040000000000000;
+              break;
+            default:
+              sendValue=null;
+              break;
+          }
+          if(sendValue==null)
+            {
+              alert("Please enter value from 1-8");
+              return;
+            }
+
   function handleAccountsChanged(accounts) {
       console.log('Calling HandleChanged')
 
@@ -604,7 +641,7 @@
                   contactAddress
       );
       
-      contractFirst.methods.mintBit(input_value).send({from:currentAccount,value:88880000000000000}).then(function (result) {
+      contractFirst.methods.mintBit(input_value).send({from:currentAccount,value:sendValue}).then(function (result) {
           console.log(result);
           // $('#getValue').html(input_value)
       });
