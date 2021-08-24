@@ -570,9 +570,9 @@
       );
 
       console.log(contractFirst.methods)
-      // contractFirst.methods.getValue().call().then(function (result) {                
-      //     $('#getValue').html(result)
-      // });
+      contractFirst.methods.saleIsActive().call().then(function (result) {                
+          console.log(result)
+      });
   }
 
   async function setValue() {
